@@ -18,7 +18,9 @@ class GeoDiaryApp extends StatelessWidget {
       child: Consumer<EntryStore>(
         builder: (context, store, _) => MaterialApp(
           title: 'GeoDiary',
-          theme: store.isDark ? ThemeData.dark() : ThemeData.light(),
+          theme: (store?.isDark ?? false)
+              ? ThemeData.dark()
+              : ThemeData.light(),
           initialRoute: '/',
           routes: {
             '/': (_) => const ListScreen(),
